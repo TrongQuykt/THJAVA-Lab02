@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App - Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-left: 220px;
+
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        img {
+            max-width: 150px;
+            max-height: 150px;
+        }
+        /* Màu đường viền cho bảng */
+        table, th, td {
+            border: 2px solid #000; /* Đặt màu cho đường viền */
+        }
+
+        /* Gộp các đường viền */
+        th, td {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<h1>Danh sách môn học</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Mã môn học</th>
+        <th>Tên môn học</th>
+        <th>Hình ảnh</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="subject : ${subjects}">
+        <tr>
+            <td th:text="${subject.code}"></td>
+            <td th:text="${subject.name}"></td>
+            <td><img th:src="@{/images/{image}(image=${subject.image})}" alt="subject image"></td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+</body>
+</html>
